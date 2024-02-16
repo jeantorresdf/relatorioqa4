@@ -1,0 +1,27 @@
+
+COMANDOS
+
+mvn clean test
+
+mvn test
+
+mvn allure:report
+
+mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
+
+Depois de executar seus testes e utilizar o comando específico para gerar o relatório com o Allure 
+- allure serve target/allure-results - no caso do Maven, será gerado um servidor local e o relatório será 
+aberto automaticamente no seu navegador padrão.
+
+Não executar o comando mvn clean test em si não tem implicações graves, especialmente se você já tiver
+ feito um build limpo anteriormente ou se não estiver realizando mudanças significativas em seu código
+  ou configuração de build.
+
+- Ao executar mvn test é gerado relatório do allure.
+
+- PARA GERAR O RELATÓRIO ALLURE 
+allure generate
+
+- PARA ABRIR O RELATÓRIO
+allure open
+

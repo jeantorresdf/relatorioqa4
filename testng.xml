@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Allure Test Suite">
+    <!--<listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>-->
+    <test name="Allure Tests">
+        <!-- Configurações do teste -->
+        <!-- -->
+        <classes>
+            <class name="com.relatorioqa4.AcessarPagina"/>
+            <class name="com.relatorioqa4.LogarSite"/>
+            <class name="com.relatorioqa4.FalhaLogin"/>
+        </classes>
+    </test>
+    
+    <parameter name="allure.results.directory" value="/allure-results"/>
+</suite>
