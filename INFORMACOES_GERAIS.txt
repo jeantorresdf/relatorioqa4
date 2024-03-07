@@ -17,7 +17,7 @@ allure open
 
 COMANDO PARA EXECUTAR O ARQUIVO testng.xml COM A SUÍTE DE TESTES 
 mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
-
+mvn test -DsuiteXmlFile=testng.xml
 
 IMPORTANTE
 - ESTE PROJETO FOI FEITO NO VS CODE

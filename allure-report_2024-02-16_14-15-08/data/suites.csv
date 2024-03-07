@@ -1,2 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Fri Feb 16 14:14:52 BRT 2024","Fri Feb 16 14:14:53 BRT 2024","1181","Default Suite","TestNGTest-22327101-7d7b-4a18-81e6-64d9b532c774","com.relatorioqa4.FalhaLogin","com.relatorioqa4.FalhaLogin","testFalhaLogin","testFalhaLogin","Login com senha incorreta e validação da mensagem de erro"

@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Feb 29 10:37:33 BRT 2024","Thu Feb 29 10:37:35 BRT 2024","2172","Allure Test Suite","Allure Tests","com.relatorioqa4.ValidarProdutos4","com.relatorioqa4.ValidarProdutos4","testarSauceDemo","testarSauceDemo","Teste de login e validação do produto"

@@ -1,0 +1,1 @@
+{"dd469128aa2b52dccd422eab56e7e925":{"statistic":{"failed":0,"broken":1,"skipped":0,"passed":0,"unknown":0,"total":1},"items":[{"uid":"c4062cebf1cc0e5d","status":"broken","statusDetails":"Unimplemented method 'validarPresencaElemento'","time":{"start":1709219795655,"stop":1709219796750,"duration":1095}}]}}

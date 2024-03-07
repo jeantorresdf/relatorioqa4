@@ -1,4 +1,8 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "console-ninja.output.showLogsOnlyFromOpenedFiles": true,
+    "console-ninja.output.showLogsFromMultipleRunningToolsTogether": true,
+    "console-ninja.output.showLogsFromLogPointsOnly": true,
+    "java.debug.settings.onBuildFailureProceed": true
 }

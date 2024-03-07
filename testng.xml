@@ -5,11 +5,12 @@
     </listeners>-->
     <test name="Allure Tests">
         <!-- Configurações do teste -->
-        <!-- -->
         <classes>
             <class name="com.relatorioqa4.AcessarPagina"/>
-            <class name="com.relatorioqa4.LogarSite"/>
-            <class name="com.relatorioqa4.FalhaLogin"/>
+            <!-- <class name="com.relatorioqa4.LogarSite"/>
+            <class name="com.relatorioqa4.FalhaLogin"/> 
+            <class name="com.relatorioqa4.ValidarProdutos3"/>
+            <class name="com.relatorioqa4.ValidarProdutos5"/>-->
         </classes>
     </test>
     

@@ -1,41 +1,62 @@
 package com.relatorioqa4;
 
-import java.io.ByteArrayInputStream;
-
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import io.qameta.allure.Allure;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import java.time.Duration;
+
+@Epic("Acessar Página")
+@Feature("Página de Login")
 
 public class AcessarPagina {
 
     private WebDriver driver;
 
     @BeforeTest
-    public void setUp() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", Configuracao.CHROME_DRIVER_PATH);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        Thread.sleep(1000);
+    public void setUp() {
+        driver = Configuracao.configurarWebDriver();
     }
 
     @Test
-    @Description("Acessar a página https://www.saucedemo.com")
-    @Epic("Acessar Página")
-    @Feature("Página de Login")
-    public void testAcessarPagina() {
+    @Description("Teste acesso pagina")
+    public void testarSauceDemo() {
+        // Acessar a página
         driver.get(Configuracao.BASE_URL);
-        // Inserir códigos de interação com a página, se necessário
-        // Exemplo de captura de screenshot usando o WebDriver do Selenium
-        tirarScreenshot("screenshot_da_pagina_inicial");
+        // Capturar screenshot da página
+        capturarScreenshot("Pagina_Inicial");
+
+        // Validar a apresentação do texto na coluna
+        validarTextoColuna();
+    }
+
+    // Método para validar a apresentação do texto na coluna e gera evidências dessa
+    // validação
+    @Step("Validar texto da coluna")
+    public void validarTextoColuna() {
+        WebElement textoColuna = driver.findElement(By.id("login_credentials"));
+        String textoCompleto = textoColuna.getText();
+        // Verificar se o texto desejado está presente dentro do texto completo
+        Assert.assertTrue(textoCompleto.contains("Accepted usernames are:"));
+        Allure.addAttachment("Validação do texto na coluna",
+                "O texto 'Accepted usernames are:' está presente na coluna.");
     }
 
     @AfterTest
@@ -46,11 +67,11 @@ public class AcessarPagina {
     }
 
     // Método para tirar um screenshot e capturar no Allure
-    private void tirarScreenshot(String nomeDoScreenshot) {
+    @Attachment(value = "{nome}", type = "image/png")
+    public byte[] capturarScreenshot(String nome) {
         if (driver instanceof TakesScreenshot) {
-            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            Allure.addAttachment(nomeDoScreenshot, new ByteArrayInputStream(screenshot));
+            return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         }
-    }    
-
+        return new byte[0];
+    }
 }

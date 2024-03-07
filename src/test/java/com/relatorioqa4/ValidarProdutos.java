@@ -31,9 +31,7 @@ public class ValidarProdutos {
 
     @BeforeTest
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", Configuracao.CHROME_DRIVER_PATH);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driver = Configuracao.configurarWebDriver();
     }
 
     @Test
